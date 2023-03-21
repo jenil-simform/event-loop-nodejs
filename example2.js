@@ -5,14 +5,14 @@
 
 const fs = require('fs')
 
-const readstrem = fs.createReadStream(__dirname);
+// const readstrem = fs.createReadStream(__dirname);
 
 setTimeout(() => console.log("timer1 finished"), 0) //2
 setImmediate(() => console.log("immediate-1 finished")) //3
 
 
 fs.readFile(__filename, () => {
-    readstrem.close()
+    // readstrem.close()
     console.log("io finished"); //4
     setTimeout(() => console.log("timer2 finished"), 0) //9
     setTimeout(() => console.log("timer3 finished"), 3000) //10
@@ -20,7 +20,7 @@ fs.readFile(__filename, () => {
     setImmediate(() => console.log("immediate-3 finished")) //6
     setImmediate(() => console.log("immediate-4 finished")) //7
     setImmediate(() => console.log("immediate-5 finished")) //8
-    readstrem.on('close', ()=> console.log('closed event'))
+    // readstrem.on('close', ()=> console.log('closed event'))
 })
 
 
